@@ -15,7 +15,19 @@
                 <div class="row">
                     <div class="col-md-3"></div>
                       <div class="col-md-6">
-                              <form action="#" class="mt-5" method="POST">
+                        @if ($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @endif
+                      @if(Session::has('error-msg'))
+                      <p class="text-danger">{{Session::get('error-msg')}}</p>
+                      @endif
+                              <form action="{{url('admin-login')}}" class="mt-5" method="POST">
                                  @csrf
                               <div class="form-group">
                                   <label>Email</label>
@@ -23,7 +35,7 @@
                               </div>
                               <div class="form-group">
                                   <label>Password</label>
-                                  <input type="password" name="pass" class="form-control">
+                                  <input type="password" name="password" class="form-control">
                               </div>
                               <div class="form-group">
                                 <input type="submit" value="Admin Login" class="btn btn-success mt-3">
@@ -33,12 +45,6 @@
                     </div>
                  </div>
               </div>
-
-                  
-                  
-
-             
-  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

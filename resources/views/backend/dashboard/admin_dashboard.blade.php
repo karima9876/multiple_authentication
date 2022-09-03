@@ -13,7 +13,7 @@
   <body>
     <h1 class="text-center">Welcome TO Admin Dashboard</h1>
     <h3 class="text-center">
-        <a class="btn btn-danger mt-3" href="#">Logout</a>
+        <a class="btn btn-danger mt-3" href="{{url('admin/logout')}}">Logout</a>
     </h3>
     
 

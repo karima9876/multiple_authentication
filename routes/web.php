@@ -19,8 +19,10 @@ Route::get('/', function () {
 });
 //backend routes
 Route::get('login/admin',[AdminController::class,'adminLoginForm'])->name('admin.login.form');
+Route::post('admin-login',[AdminController::class,'adminLogin'])->name('admin.login');
 Route::group(['middleware'=>'admin'],function(){
     Route::get('admin/dashboard',[DashboardController::class,'adminDashboard'])->name('admin.dashboard');
+    Route::get('admin/logout',[AdminController::class,'adminLogout'])->name('admin.logout');
 
 });
 
